@@ -1,0 +1,46 @@
+body{
+    font-size: small;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+p{
+    margin: 0;
+}
+table {
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        width: 75px;
+        max-width: 75px;
+        overflow: hidden;
+        word-wrap: break-word;
+    }
+    
+    tbody {
+        display: block;
+    }
+    
+    thead {
+        display: table;
+        box-sizing: border-box;
+    }
+    
+    tr {
+        display: table;
+        box-sizing: border-box;
+        position: relative;
+    }
+
+.delbtn {
+    position: absolute;
+    left: -100px;
+}
+.delbtn:nth-child(2){
+    top: 22px;
+}

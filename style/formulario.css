@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  nav{
+    display: flex;
+    background-color: #666;
+  }
+  
+  nav div, .sidebar div {
+    margin: 0 10px;
+    margin: 10px;
+    flex:1
+  }
+  
+  nav a, .sidebar a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    color: #ccc;
+    transition: background-color 0.3s ease;
+  }
+  
+  nav a:hover, .sidebar a:hover {
+    background-color: #ccc;
+    color: #222;
+  }
+  
+  .sidebar {
+    width: 200px;
+    background-color: #666;
+    margin: 0;
+    height: 100%;
+  }
+  
+  main{
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+  }
+  
+  #principal{
+      flex:3;
+      background-color: #fff;
+  }
+  
+  #admincfg::after{
+      content: 'Ingresar como admin para acceder';
+      font-size: x-small;
+      color: red;
+    }
+    
+  #fotoPerfil{
+    max-width: 50px;
+    max-height: 50px;
+  }
+  
+  .fotoPerfil{
+    border-radius: 50%;
+  }
+
+    
+.column {
+    flex: 1;
+    padding: 10px;
+    background-color: #ccc;
+    color: #222;
+  }
+  .whitespace{
+    height: 50px;
+  }
+  
+  footer {
+    background-color: #821;
+    color: #ccc;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  ul{
+      list-style: none;
+      padding: 10px;
+      margin: 0;
+  }
+  h1, h2, h3, h4, h5{
+    text-align: center;
+  }
+
+
+
+
+  form{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .register-btn {
+    background-color: #821;
+    color: #ccc;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    border: solid 4px white;
+    width: 40%;
+  }
+
+  .register-btn:hover {
+    border: outset 4px #a43;
+    background-color: #710;
+  }
+
+  .register-btn:disabled{
+    border: solid 4px #fff;
+    background-color: #555;
+  }

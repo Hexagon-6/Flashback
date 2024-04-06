@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlashBack</title>
+  <link rel="stylesheet" href="juegostyle">
+</head>
+<body>
+
+  <nav>
+    <div><img src="#" alt = "FLASHBACK"></div>
+    <div><a href="main">Principal</a></div>
+    <div><a href="#">Foros</a></div>
+    <div><a href="#">Estados</a></div>
+    <div><a href="biblioteca">Biblioteca</a></div>
+  </nav>
+
+  <main>
+    <div class="sidebar">
+      <ul>
+        <div>
+          <a href="perfil">
+            Mi Perfil
+            <br>
+            <img id = "fotoPerfil" src="" alt="~fotoPerfil.png~"><span id = "nombrePerfil"></span>
+          </a>
+        </div>
+        <div><a href="#">Amigos</a></div>
+        <div><a href="#">Chats</a></div>
+        <div><a href="formulario">Aportar</a></div>
+        <div>
+          <a>
+            Configuración
+            <ul>
+              <li><button>Modo oscuro</button></li>
+              <li id = "admincfg"><button onclick = "window.location.href = 'adminconfig';">Menú admin.</button></li>
+            </ul>
+          </a>
+        </div>
+      </ul>
+    </div>
+      
+    <div class="column">
+    </div>
+
+    <section class="column" id = "principal">
+      <div>
+        <h2 id = "tituloJuego">Jugar </h2>
+        <iframe frameborder="1" id = "frameJuego"></iframe>
+        <p id = "descripcionJuego"></p>
+      </div>
+    </section>
+
+    <div class="column">  
+    </div>
+
+  </main>
+
+  <footer>
+    <p>2023 FlashBack</p>
+  </footer>
+
+</body>
+
+<script>
+  const fotoPerfil = document.getElementById("fotoPerfil");
+  const nombrePerfil = document.getElementById("nombrePerfil");  
+
+  fetch('dbprofiles')
+  .then(response => response.json())
+  .then(user => {
+      const txt = document.createTextNode(user.nombreUsuario);
+
+      nombrePerfil.appendChild(txt);
+      fotoPerfil.src = user.fotoPerfil;
+  })
+  .catch(error => console.error('Fetch error:', error));
+  
+  const tituloJuego = document.getElementById("tituloJuego");
+  const frameJuego = document.getElementById("frameJuego");
+  const descripcionJuego = document.getElementById("descripcionJuego");
+
+  fetch('dbjugar')
+  .then(response => response.json())
+  .then(juego => {
+      const tituloTxt = document.createTextNode(juego.titulo);
+      const descripcionTxt = document.createTextNode(juego.descripcion);
+
+      tituloJuego.appendChild(tituloTxt);
+      descripcionJuego.appendChild(descripcionTxt);
+      frameJuego.src = (juego.archivo);
+    })
+  .catch(error => console.error('Fetch error:', error));
+
+</script>
+
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlashBack</title>
+  <link rel="stylesheet" href="perfilstyle">
+</head>
+<body>
+
+  <nav>
+    <div><img src="#" alt = "FLASHBACK"></div>
+    <div><a href="main">Principal</a></div>
+    <div><a href="#">Foros</a></div>
+    <div><a href="#">Estados</a></div>
+    <div><a href="biblioteca">Biblioteca</a></div>
+  </nav>
+
+  <main>
+    <div class="sidebar">
+      <ul>
+        <div>
+          <a href="perfil">
+            Mi Perfil
+            <br>
+            <img class = "fotoPerfil" id = "fotoPerfil" src="" alt="~fotoPerfil.png~"><span id = "nombrePerfil"></span>
+          </a>
+        </div>
+        <div><a href="#">Amigos</a></div>
+        <div><a href="#">Chats</a></div>
+        <div><a href="formulario">Aportar</a></div>
+        <div>
+          <a>
+            Configuración
+            <ul>
+              <li><button>Modo oscuro</button></li>
+              <li id = "admincfg"><button onclick = "window.location.href = 'adminconfig';">Menú admin.</button></li>
+            </ul>
+          </a>
+        </div>
+      </ul>
+    </div>
+      
+    <div class="column">
+    </div>
+
+    <section class="column" id = "principal">
+      <div>
+        <h2>Mi perfil</h2>
+
+        <div class = "whitespace"></div>
+
+        <img class = "fotoPerfil" id = "fotoPerfilMenu" src="" alt="~fotoPerfil.png~">
+        <span id = "nombrePerfilMenu"></span>
+
+        <div class = "whitespace"></div>
+
+        <form action="dbprofiles" method = "post">
+          <label for="usrnm">Nombre de usuario:</label>
+          <input type="text" id="usrnm" name="usrnm" required>
+          <button id = "submitNombre" type = "submit" class = "register-btn">Actualizar nombre de usuario</button>
+        </form>
+
+        <form action="dbprofiles" method = "post">
+          <label for="photo">Foto de perfil</label>
+          <input type="text" id="photo" name="photo" required>
+
+          <button id = "submitFoto" type = "submit" class = "register-btn">Actualizar foto de perfil</button>
+        </form>
+
+        <form action="dbprofiles" method = "post">
+          <label for="password">Contraseña:</label>
+          <input type="password" id="password" name="password" oninput="checkPassword()" required>
+
+          <label for="password2">Confirmar contraseña:</label>
+          <input type="password" id="password2" name="password2" oninput="checkPassword()" required>
+
+          <button id = "submitPass" type = "submit" class = "register-btn" disabled>Actualizar contraseña</button>
+        </form>
+      </div>
+    </section>
+
+    <div class="column">  
+    </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>2023 FlashBack</p>
+  </footer>
+
+</body>
+<script>
+  const fotoPerfil = document.getElementById("fotoPerfil");
+  const nombrePerfil = document.getElementById("nombrePerfil");  
+  const fotoPerfilMenu = document.getElementById("fotoPerfilMenu");
+  const nombrePerfilMenu = document.getElementById("nombrePerfilMenu");  
+  
+  
+  fetch('dbprofiles')
+  .then(response => response.json())
+  .then(user => {
+      const txt = document.createTextNode(user.nombreUsuario);
+      
+      nombrePerfil.appendChild(txt);
+      nombrePerfilMenu.appendChild(txt);
+      
+      fotoPerfilMenu.src = user.fotoPerfil;
+      fotoPerfil.src = user.fotoPerfil;
+    })
+    .catch(error => console.error('Fetch error:', error));
+    
+    
+    const password = document.getElementById("password");
+    const password2 = document.getElementById("password2");
+    const submitPass = document.getElementById("submitPass");
+    
+    function checkPassword(){ 
+      submitPass.disabled = password.value != password2.value || password.value == '' || password2.value == '';
+    }
+    
+    checkPassword();
+</script>
+</html>
