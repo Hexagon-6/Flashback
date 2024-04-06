@@ -6,5 +6,11 @@ Funciona como una red social que incluye espacios de interacción como foros, co
 
 
 
+# Galería
+
+![fbmain](https://github.com/Hexagon-6/Flashback/assets/156491984/41417fee-3105-4fd4-b9e3-4d7657052057)
+![fbprofile](https://github.com/Hexagon-6/Flashback/assets/156491984/8e0909b0-f5b3-4a47-904f-590bf47a84cb)
+![fbregister](https://github.com/Hexagon-6/Flashback/assets/156491984/5f7872bf-75a2-4d0a-a63e-4c62376ceca3)
+
 # PDF Manual de usuario  
 [Manual de usuarioFB.pdf](https://github.com/Hexagon-6/Flashback/files/14894279/Manual.de.usuarioFB.pdf)
